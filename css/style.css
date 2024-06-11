@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: NunitoBold;
+    src: url("../fonts/NunitoBold.ttf");
+}
+
+body {
+    font-family: NunitoBold, sans-serif;
+    background: linear-gradient(to right, white 50%, #F8F8FA 50%);
+    height: 960px;
+}
+
+.logo {
+    padding: 40px 0 118px 0;
+    text-align: center;
+}
+
+.logo img {
+    padding: 0 5px 0 0;
+}
+
+.container {
+    width: 1920px;
+    margin: 0 auto;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.register h1 {
+    font-size: 36px;
+    line-height: 49px;
+    text-align: left;
+    padding-bottom: 7px;
+}
+
+.register p {
+    font-size: 22px;
+    line-height: 27px;
+    text-align: left;
+    color: #636363;
+    height: 81px;
+    padding-bottom: 42px;
+
+
+}
+
+.block {
+    flex: 1 0;
+    width: 50%;
+}
+
+.block.register {
+    max-width: 452px;
+    margin-left: 423px;
+    margin-right: 85px;
+}
+
+.main__img {
+    margin-left: 11px;
+
+}
+
+.login__form {
+    font-size: 16px;
+    text-align: left;
+    color: #C6C6C4;
+}
+
+.terms-checkbox {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #636363;
+    margin-bottom: 44px;
+}
+
+.btn {
+    width: 210px;
+    height: 70px;
+    border-radius: 40px;
+    border-color: transparent;
+    text-align: center;
+    background: #DD3142;
+    color: #FFFFFF;
+    font-size: 20px;
+    margin: 0 auto;
+    display: block;
+
+}
+
+.signin {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.signin a {
+    color: #636363;
+    text-decoration: none;
+
+}
+
+.login__form input {
+    width: 452px;
+    height: 25px;
+    margin-bottom: 20px;
+    border: 0;
+    border-bottom: 1px solid #C6C6C4;
+    font-size: 20px;
+    padding: 5px 0 4px 0;
+    outline: none;
+    color: #323232;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.modal__title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.modal__text {
+    margin-bottom: 20px;
+}
+
+.close {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close:hover {
+    background-color: #333;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <img src="images/homeWorks.png" alt="logo" class="logo__img">
+    </div>
+</header>
+<section class="main">
+    <form class=" block register">
+        <h1 id="title">
+            Get your free account
+        </h1>
+        <p>
+            Try homeWorks BUSINESS free for 15 days. Downgrade to Basic (Free Forever) anytime.
+        </p>
+        <div class="login__form">
+            <label for="fullname">Full name
+            <input type="text" id="fullname">
+            </label>
+
+            <label for="username">Your username
+            <input type="text" id="username">
+            </label>
+
+            <label for="email">E-mail
+            <input type="text" id="email">
+            </label>
+
+            <label for="psw">Password
+            <input type="password" id="psw">
+            </label>
+
+            <label for="psw-repeat">Repeat Password
+            <input type="password" id="psw-repeat">
+            </label>
+        </div>
+
+
+        <div class="terms-checkbox">
+            <input type="checkbox" id="terms">
+            <label for="terms">Agree to our <a href="">Terms of Service and Privacy Statement</a></label>
+        </div>
+        <button class="btn" id="signup">Sign up</button>
+        </div>
+        <div class="signin" id="login-link">
+            <a href="#" >Already have an account?</a>
+        </div>
+        </div>
+    </form>
+    <div class="modal" id="modal">
+        <div class="modal__content">
+            <h2 class="modal__title">Registration Successful</h2>
+            <p class="modal__text">На вашу почту выслана ссылка, перейдите по ней, чтобы завершить регистрацию.</p>
+            <button class="close" id="modal__close">OK</button>
+        </div>
+    </div>
+    <div class="block image">
+        <img src="images/image.png" alt="Pocket" class="main__img">
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
