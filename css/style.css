@@ -10,7 +10,7 @@
 
 body {
     font-family: NunitoBold, sans-serif;
-    background: linear-gradient(to right, white 50%, #F8F8FA 50%);
+    background: linear-gradient(to right, white 50%, #fcd8bd 50%);
     height: 960px;
 }
 
@@ -63,6 +63,10 @@ body {
     margin-right: 85px;
 }
 
+.block.image img {
+    filter: sepia(1);
+}
+
 .main__img {
     margin-left: 11px;
 
@@ -87,7 +91,7 @@ body {
     border-radius: 40px;
     border-color: transparent;
     text-align: center;
-    background: #DD3142;
+    background: #e1a32e;
     color: #FFFFFF;
     font-size: 20px;
     margin: 0 auto;
