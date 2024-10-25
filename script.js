@@ -20,8 +20,6 @@ window.addEventListener('load', function () {
             event.target.value = value.replace(regex, '');
         }
     });
-    // Эта функция проверяет нажатые клавиши и удаляет любые цифры,
-// которые пользователь пытается ввести.
 
     usernameInput.addEventListener('input', function (event) {
         const value = event.target.value;
