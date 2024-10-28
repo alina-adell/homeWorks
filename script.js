@@ -1,3 +1,4 @@
+
 window.addEventListener('load', function () {
     const fullNameInput = document.getElementById('fullname');
     const usernameInput = document.getElementById('username');
@@ -153,19 +154,8 @@ window.addEventListener('load', function () {
     loginLink.addEventListener('click', switchToLogin);
 });
 
-
 console.log("Привет ветки mytask!");
-
-
-
-
-
-
-
-
-
-
-
+console.log("Привет из новой ветки mytask!");
 
 
 
