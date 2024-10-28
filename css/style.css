@@ -64,7 +64,7 @@ body {
 }
 
 .block.image img {
-    filter: sepia(1);
+    filter: sepia(1) hue-rotate(90deg);
 }
 
 .main__img {
