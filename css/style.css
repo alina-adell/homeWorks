@@ -10,7 +10,7 @@
 
 body {
     font-family: NunitoBold, sans-serif;
-    background: linear-gradient(to right, white 50%, #fcd8bd 50%);
+    background: linear-gradient(to right, #eba8b1 50%, #fcd8bd 50%);
     height: 960px;
 }
 
@@ -45,7 +45,7 @@ body {
     font-size: 22px;
     line-height: 27px;
     text-align: left;
-    color: #636363;
+    color: #88293e;
     height: 81px;
     padding-bottom: 42px;
 
@@ -64,7 +64,7 @@ body {
 }
 
 .block.image img {
-    filter: sepia(1);
+    filter: sepia(1) hue-rotate(90deg);
 }
 
 .main__img {
@@ -73,9 +73,9 @@ body {
 }
 
 .login__form {
-    font-size: 16px;
+    font-size: 15px;
     text-align: left;
-    color: #C6C6C4;
+    color: #000000;
 }
 
 .terms-checkbox {
@@ -86,14 +86,14 @@ body {
 }
 
 .btn {
-    width: 210px;
-    height: 70px;
+    height: 60px;
+    width: 200px;
     border-radius: 40px;
     border-color: transparent;
     text-align: center;
-    background: #e1a32e;
+    background: #eba8b1;
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 15px;
     margin: 0 auto;
     display: block;
 
@@ -142,7 +142,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: #938080;
     padding: 20px;
     border-radius: 10px;
     width: 80%;
@@ -163,7 +163,7 @@ body {
     border: none;
     border-radius: 5px;
     background-color: #000;
-    color: #fff;
+    color: #eba8b1;
     cursor: pointer;
 }
 
