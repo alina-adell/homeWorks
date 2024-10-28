@@ -154,6 +154,8 @@ window.addEventListener('load', function () {
 });
 
 
+console.log("Привет ветки mytask!");
+
 
 
 
