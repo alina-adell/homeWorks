@@ -86,7 +86,7 @@ body {
 }
 
 .btn {
-    width: 210px;
+    width: 210px;wq
     height: 60px;
     border-radius: 40px;
     border-color: transparent;
@@ -163,7 +163,7 @@ body {
     border: none;
     border-radius: 5px;
     background-color: #000;
-    color: #fff;
+    color: #eba8b1;
     cursor: pointer;
 }
 
