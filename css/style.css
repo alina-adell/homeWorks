@@ -10,7 +10,7 @@
 
 body {
     font-family: NunitoBold, sans-serif;
-    background: linear-gradient(to right, white 50%, #fcd8bd 50%);
+    background: linear-gradient(to right, #eba8b1 50%, #fcd8bd 50%);
     height: 960px;
 }
 
@@ -45,7 +45,7 @@ body {
     font-size: 22px;
     line-height: 27px;
     text-align: left;
-    color: #636363;
+    color: #88293e;
     height: 81px;
     padding-bottom: 42px;
 
