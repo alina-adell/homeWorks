@@ -79,10 +79,21 @@ body {
 }
 
 .terms-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: fit-content;
     margin-top: 30px;
     font-size: 16px;
     color: #636363;
     margin-bottom: 44px;
+    max-width: 452px;
+}
+.terms-checkbox input {
+    align-self: center;
+    margin-bottom: 0;
+    max-width: 30px;
+    margin-right: 10px;
 }
 
 .btn {
@@ -110,7 +121,7 @@ body {
 
 }
 
-.login__form input {
+input {
     width: 452px;
     height: 25px;
     margin-bottom: 20px;
@@ -171,12 +182,13 @@ body {
     background-color: #333;
 }
 
-.error {
-    border-color: red;
+.errors {
+    border: 2px solid red;;
 }
 
 .error-message {
     color: red;
-    font-size: 0.8rem;
-    margin-top: 5px;
+    font-size: 12px;
+    margin-bottom: 15px;
+
 }
