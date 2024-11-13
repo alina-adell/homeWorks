@@ -5,6 +5,7 @@ const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('psw');
 const passwordRepeatInput = document.getElementById('psw-repeat');
 const checkbox = document.getElementById('terms');
+const checkboxagree = document.querySelector('.terms-checkbox');
 const signupButton = document.getElementById('signup');
 const modal = document.getElementById('modal');
 const closeButton = document.getElementById('modal__close');
@@ -34,6 +35,7 @@ function removeError(input) {
         input.classList.remove('errors');
     }
 }
+
 function openModal(event) {
     console.log("Вызвана функция openModal()");
     modal.classList.add('active');
@@ -55,7 +57,7 @@ function validation(form) {
         result = false;
     }
 
-    if (passwordRepeatInput.value  !== passwordInput.value) {
+    if (passwordRepeatInput.value !== passwordInput.value) {
         showError(passwordRepeatInput, 'Пароли не совпадают');
         result = false;
     }
@@ -65,10 +67,10 @@ function validation(form) {
         result = false;
     }
 
-    if  (!passwordInput.value || !passwordRegex.test(passwordInput.value)) {
-            showError(passwordInput, 'Пароль должен содержать не менее 8 символов,  хотя бы одна буква в верхнем регистре, одна цифра, один спецсимвол');
+    if (!passwordInput.value || !passwordRegex.test(passwordInput.value)) {
+        showError(passwordInput, 'Пароль должен содержать не менее 8 символов,  хотя бы одна буква в верхнем регистре, одна цифра, один спецсимвол');
         result = false;
-        }
+    }
 
     if (!checkbox.checked) {
         showError(checkbox, 'Вы должны согласиться с условиями');
@@ -82,14 +84,35 @@ checkbox.addEventListener('change', function (event) {
     console.log(message);
 });
 
+
+let signupButtonIsRegistration = true;
+
+signupButton.addEventListener('click', function () {
+    if (signupButtonIsRegistration) {
+        if (validation(this) == true) {
+            openModal();
+            const newUser = {
+                fullName: fullNameInput.value,
+                username: usernameInput.value,
+                email: emailInput.value,
+                password: passwordInput.value
+            };
+
+            let clients = JSON.parse(localStorage.getItem('clients')) || [];
+            clients.push(newUser);
+            console.log("Updated clients array:", clients);
+            localStorage.setItem('clients', JSON.stringify(clients));
+        }
+    } else {
+        loginValidation();
+    }
+});
+
 form.addEventListener('submit', function (event) {
     event.preventDefault()
 
-    if (validation(this) == true) {
-        openModal();
-    }
-})
 
+})
 
 
 function closeModal() {
@@ -107,3 +130,69 @@ function closeModal() {
 closeButton.addEventListener("click", function () {
     closeModal();
 });
+
+closeButton.addEventListener("click", function () {
+    switchToLogin();
+    closeModal();
+});
+
+loginLink.addEventListener('click', function () {
+    switchToLogin();
+
+});
+
+function loginValidation() {
+    const usernameSign = document.getElementById('username');
+    const passwordSign = document.getElementById('psw');
+    const welcomeMessage = document.getElementById('welcome-message');
+    welcomeMessage.textContent = `Добро пожаловать, ${username}!`;
+    removeError(usernameSign);
+    removeError(passwordSign);
+
+    if (!usernameSign.value || !usernameRegex.test(usernameSign.value)) {
+        showError(usernameSign, 'Username может содержать только буквы, цифры, подчеркивания и тире');
+        return;
+    }
+
+    if (passwordSign.value.length < 8) {
+        alert('Пароль должен содержать не менее 8 символов');
+        return;
+    }
+    const clients = JSON.parse(localStorage.getItem('clients')) || [];
+    const user = clients.find(user => user.username === usernameSign.value);
+
+    if (!user) {
+        showError(usernameSign, 'Такой пользователь не зарегистрирован');
+        return;
+    }
+
+    if (user.password === passwordSign.value) {
+        showError(passwordInput, 'Неверный пароль');
+        return;
+    }
+    if (user.password === passwordInput.value) {
+        window.location.href = 'личный_кабинет.html?username=' + encodeURIComponent(usernameSign.value);
+    }
+
+}
+
+
+    function switchToLogin() {
+        switchTitle.textContent = 'Log in to the system';
+        fullNameInput.parentElement.remove();
+        usernameInput.value = '';
+        emailInput.parentElement.remove();
+        passwordInput.value = '';
+        passwordRepeatInput.parentElement.remove();
+        checkboxagree.remove();
+        signupButton.textContent = 'Sign In';
+        loginLink.textContent = 'Registration';
+        loginLink.addEventListener('click', function () {
+            location.reload();
+        });
+
+        signupButton.removeEventListener('click', validation);
+        signupButton.setAttribute('type', 'button');
+    }
+
+
