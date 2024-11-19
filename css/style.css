@@ -10,8 +10,17 @@
 
 body {
     font-family: NunitoBold, sans-serif;
-    background: linear-gradient(to right, #eba8b1 50%, #fcd8bd 50%);
+    background: linear-gradient(to right, #ffffff 50%, rgba(147, 131, 131, 0.17) 50%);
     height: 960px;
+}
+.container {
+    max-width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 85px;
+
 }
 
 .logo {
@@ -23,15 +32,9 @@ body {
     padding: 0 5px 0 0;
 }
 
-.container {
-    width: 1920px;
-    margin: 0 auto;
-}
 
 .main {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+
 }
 
 .register h1 {
@@ -52,25 +55,12 @@ body {
 
 }
 
-.block {
-    flex: 1 0;
-    width: 50%;
-}
 
 .block.register {
-    max-width: 452px;
-    margin-left: 423px;
-    margin-right: 85px;
-}
-
-.block.image img {
-    filter: sepia(1) hue-rotate(90deg);
-}
-
-.main__img {
-    margin-left: 11px;
+    max-width: 470px;
 
 }
+
 
 .login__form {
     font-size: 15px;
@@ -102,7 +92,7 @@ body {
     border-radius: 40px;
     border-color: transparent;
     text-align: center;
-    background: #eba8b1;
+    background: #d51536;
     color: #FFFFFF;
     font-size: 15px;
     margin: 0 auto;
@@ -156,7 +146,7 @@ input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #938080;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     width: 80%;

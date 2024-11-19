@@ -11,6 +11,8 @@ const modal = document.getElementById('modal');
 const closeButton = document.getElementById('modal__close');
 const switchTitle = document.getElementById('title');
 const loginLink = document.getElementById('login-link');
+let isLoggedIn = false;
+let currentUser = null;
 
 
 const nameRegex = /^[A-Za-zА-Яа-яё\s]+$/;
@@ -42,7 +44,7 @@ function openModal(event) {
     console.log("Модальное окно открыто");
 }
 
-function validation(form) {
+function validation() {
     let result = true;
 
 
@@ -85,11 +87,9 @@ checkbox.addEventListener('change', function (event) {
 });
 
 
-let signupButtonIsRegistration = true;
 
 signupButton.addEventListener('click', function () {
-    if (signupButtonIsRegistration) {
-        if (validation(this) == true) {
+        if (validation()) {
             openModal();
             const newUser = {
                 fullName: fullNameInput.value,
@@ -102,10 +102,8 @@ signupButton.addEventListener('click', function () {
             clients.push(newUser);
             console.log("Updated clients array:", clients);
             localStorage.setItem('clients', JSON.stringify(clients));
+            signupButton.removeEventListener('click', this);
         }
-    } else {
-        loginValidation();
-    }
 });
 
 form.addEventListener('submit', function (event) {
@@ -138,14 +136,11 @@ closeButton.addEventListener("click", function () {
 
 loginLink.addEventListener('click', function () {
     switchToLogin();
-
 });
 
 function loginValidation() {
     const usernameSign = document.getElementById('username');
     const passwordSign = document.getElementById('psw');
-    const welcomeMessage = document.getElementById('welcome-message');
-    welcomeMessage.textContent = `Добро пожаловать, ${username}!`;
     removeError(usernameSign);
     removeError(passwordSign);
 
@@ -155,25 +150,17 @@ function loginValidation() {
     }
 
     if (passwordSign.value.length < 8) {
-        alert('Пароль должен содержать не менее 8 символов');
+        showError(passwordSign, 'Пароль должен содержать не менее 8 символов');
         return;
     }
     const clients = JSON.parse(localStorage.getItem('clients')) || [];
-    const user = clients.find(user => user.username === usernameSign.value);
+    const user = clients.find(user => user.username === usernameSign.value && user.password === passwordSign.value);
 
-    if (!user) {
-        showError(usernameSign, 'Такой пользователь не зарегистрирован');
-        return;
+    if (user) {
+        switchToAccount(user);
+    } else {
+        showError(usernameSign, 'Invalid username or password');
     }
-
-    if (user.password === passwordSign.value) {
-        showError(passwordInput, 'Неверный пароль');
-        return;
-    }
-    if (user.password === passwordInput.value) {
-        window.location.href = 'личный_кабинет.html?username=' + encodeURIComponent(usernameSign.value);
-    }
-
 }
 
 
@@ -185,14 +172,31 @@ function loginValidation() {
         passwordInput.value = '';
         passwordRepeatInput.parentElement.remove();
         checkboxagree.remove();
-        signupButton.textContent = 'Sign In';
         loginLink.textContent = 'Registration';
         loginLink.addEventListener('click', function () {
             location.reload();
         });
-
         signupButton.removeEventListener('click', validation);
         signupButton.setAttribute('type', 'button');
+        signupButton.textContent = 'Sign In';
+        signupButton.addEventListener('click', () => {
+            loginValidation();
+        });
+        isLoggedIn = false;
+        currentUser = null;
     }
 
+function switchToAccount(user) {
+    switchTitle.textContent = `Welcome, ${user.fullName}!`;
+    usernameInput.parentElement.classList.add('hidden');
+    passwordInput.parentElement.classList.add('hidden');
+    signupButton.textContent = 'Exit';
+    signupButton.addEventListener('click', () => {
+        switchToLogin();
+    });
+    loginLink.parentElement.classList.add('hidden');
+    signupButton.setAttribute('type', 'button');
+    isLoggedIn = true;
+    currentUser = user;
+}
 
