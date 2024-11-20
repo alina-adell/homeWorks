@@ -188,8 +188,8 @@ function loginValidation() {
 
 function switchToAccount(user) {
     switchTitle.textContent = `Welcome, ${user.fullName}!`;
-    usernameInput.parentElement.classList.add('hidden');
-    passwordInput.parentElement.classList.add('hidden');
+    usernameInput.parentElement.remove();
+    passwordInput.parentElement.remove();
     signupButton.textContent = 'Exit';
     signupButton.addEventListener('click', () => {
         switchToLogin();
